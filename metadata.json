@@ -1,0 +1,6 @@
+{
+  "name": "Rapid Business Consultancy",
+  "description": "Professional Business, Compliance & Scholarship Services Platform in Zambia. Offering company registration, ZRA, PACRA compliance, study abroad guidance, corporate branding, and accounting solutions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

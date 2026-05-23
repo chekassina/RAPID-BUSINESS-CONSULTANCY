@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300..900;1,300..900&family=Outfit:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Georgia", "Playfair Display", ui-serif, Cambria, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-corporate-blue: #0A192F;
+  --color-corporate-blue-light: #172A45;
+  --color-corporate-blue-dark: #020C1B;
+  --color-corporate-gold: #C5A059;
+  --color-corporate-gold-light: #E0C188;
+  --color-corporate-gold-dark: #A3803B;
+}
+
+/* Custom scrollbar and subtle layout tweaks */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #020C1B;
+  color: #E2E8F0;
+}
+
+/* Custom typography accents */
+.text-gradient-gold {
+  background: linear-gradient(135deg, #A3803B 0%, #E0C188 50%, #C5A059 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gradient-corporate {
+  background: linear-gradient(135deg, #020C1B 0%, #0A192F 50%, #172A45 100%);
+}
+
+.bg-gradient-gold {
+  background: linear-gradient(135deg, #A3803B 0%, #C5A059 50%, #E0C188 100%);
+}
+
