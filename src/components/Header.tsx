@@ -1,7 +1,8 @@
+
 import { useState } from "react";
 import { PageId } from "../types";
 import { COMPANY_CONTACTS } from "../data";
-import { Menu, X, Phone, Mail, Clock, ShieldCheck } from "lucide-react";
+import { Menu, X, Clock } from "lucide-react";
 import Logo from "./Logo";
 
 interface HeaderProps {
@@ -9,7 +10,10 @@ interface HeaderProps {
   setCurrentPage: (page: PageId) => void;
 }
 
-export default function Header({ currentPage, setCurrentPage }: HeaderProps) {
+export default function Header({
+  currentPage,
+  setCurrentPage,
+}: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems: { id: PageId; label: string }[] = [
@@ -27,57 +31,43 @@ export default function Header({ currentPage, setCurrentPage }: HeaderProps) {
   const handleNavClick = (pageId: PageId) => {
     setCurrentPage(pageId);
     setMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   return (
     <header className="w-full bg-corporate-blue border-b border-corporate-gold/20 sticky top-0 z-50 shadow-md">
-      {/* Top Banner with Micro Contacts */}
-      <div className="w-full bg-corporate-blue-dark text-white py-1.5 px-4 text-xs border-b border-corporate-gold/10">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-          <div className="flex items-center gap-4 text-gray-200">
-            <span className="flex items-center gap-1">
-              <Phone className="w-3.5 h-3.5 text-corporate-gold" />
-              {COMPANY_CONTACTS.phone1}
-            </span>
-            <span className="hidden md:flex items-center gap-1">
-              <Mail className="w-3.5 h-3.5 text-corporate-gold" />
-              {COMPANY_CONTACTS.email}
-            </span>
-          </div>
-          <div className="flex items-center gap-3">
-            <span className="hidden sm:flex items-center gap-1 text-gray-200">
-              <Clock className="w-3.5 h-3.5 text-corporate-gold" />
-              08:00 - 17:00 (Mon-Sat)
-            </span>
-            <div className="bg-corporate-gold/20 text-corporate-gold border border-corporate-gold/30 py-0.5 px-3 rounded-sm text-[10px] font-semibold transition-all duration-300">
-              <span className="flex items-center gap-1">
-                <ShieldCheck className="w-3 h-3 text-corporate-gold" />
-                PACRA / ZRA Registered Consultant
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Logo & Branded Header Bar */}
+      {/* Main Logo & Branded Header */}
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-        {/* Dynamic RBOC Corporate Brand Segment */}
-        <div className="flex items-center gap-3 cursor-pointer" onClick={() => handleNavClick("home")}>
-          {/* Official Clock / Compass Logo Badge */}
-          <Logo size={48} className="shrink-0 shadow-md rounded-full border border-corporate-gold/20" />
+        {/* Logo + Company Name */}
+        <div
+          className="flex items-center gap-3 cursor-pointer"
+          onClick={() => handleNavClick("home")}
+        >
+          <Logo
+            size={48}
+            className="shrink-0 shadow-md rounded-full border border-corporate-gold/20"
+          />
 
           <div>
             <div className="text-md sm:text-xl font-serif font-light text-white leading-tight tracking-tight flex items-center flex-wrap gap-x-1 uppercase">
-              RAPID <span className="text-corporate-gold font-bold italic font-serif">BUSINESS</span> CONSULTANCY
+              RAPID{" "}
+              <span className="text-corporate-gold font-bold italic font-serif">
+                BUSINESS
+              </span>{" "}
+              CONSULTANCY
             </div>
+
             <div className="text-[9px] sm:text-[10px] font-bold text-gray-400 tracking-widest uppercase">
               “{COMPANY_CONTACTS.slogan}”
             </div>
           </div>
         </div>
 
-        {/* CTA Button Desktop */}
+        {/* Desktop CTA */}
         <div className="hidden lg:flex items-center gap-4">
           <button
             onClick={() => handleNavClick("booking")}
@@ -88,7 +78,7 @@ export default function Header({ currentPage, setCurrentPage }: HeaderProps) {
           </button>
         </div>
 
-        {/* Mobile Toggle Button */}
+        {/* Mobile Toggle */}
         <div className="lg:hidden flex items-center">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -96,17 +86,22 @@ export default function Header({ currentPage, setCurrentPage }: HeaderProps) {
             id="mobile-menu-toggle-btn"
             aria-label="Toggle navigation menu"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6 text-corporate-gold" /> : <Menu className="w-6 h-6 text-white" />}
+            {mobileMenuOpen ? (
+              <X className="w-6 h-6 text-corporate-gold" />
+            ) : (
+              <Menu className="w-6 h-6 text-white" />
+            )}
           </button>
         </div>
       </div>
 
-      {/* Navigation Links Bar (Desktop Only) */}
+      {/* Desktop Navigation */}
       <nav className="hidden lg:block bg-corporate-blue-dark border-t border-corporate-blue/30 px-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <ul className="flex flex-wrap items-center">
             {navItems.map((item) => {
               const isActive = currentPage === item.id;
+
               return (
                 <li key={item.id}>
                   <button
@@ -130,17 +125,19 @@ export default function Header({ currentPage, setCurrentPage }: HeaderProps) {
             className="text-xs text-corporate-gold hover:text-white font-bold transition-colors py-3 px-2 flex items-center gap-1"
           >
             <span>Online Inquiries Portal</span>
+
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
           </button>
         </div>
       </nav>
 
-      {/* Dropdown Mobile Menu with Slide Animation */}
+      {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="lg:hidden w-full bg-corporate-blue-dark text-white border-t border-corporate-blue/40 shadow-xl overflow-hidden animate-fade-in-down">
           <div className="px-4 py-3 flex flex-col gap-1">
             {navItems.map((item) => {
               const isActive = currentPage === item.id;
+
               return (
                 <button
                   key={item.id}
@@ -156,6 +153,8 @@ export default function Header({ currentPage, setCurrentPage }: HeaderProps) {
                 </button>
               );
             })}
+
+            {/* Mobile CTA Buttons */}
             <div className="pt-2 pb-1 border-t border-white/10 mt-2 flex flex-col gap-2">
               <button
                 onClick={() => handleNavClick("booking")}
@@ -165,6 +164,7 @@ export default function Header({ currentPage, setCurrentPage }: HeaderProps) {
                 <Clock className="w-4 h-4" />
                 Book Free Consultation
               </button>
+
               <a
                 href={`https://wa.me/${COMPANY_CONTACTS.whatsappNumber}?text=${encodeURIComponent(
                   COMPANY_CONTACTS.whatsappWelcomeMessage
@@ -173,9 +173,13 @@ export default function Header({ currentPage, setCurrentPage }: HeaderProps) {
                 rel="noreferrer"
                 className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-black text-center py-3 rounded-lg text-sm flex items-center justify-center gap-2 transition-all shadow-md"
               >
-                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <svg
+                  className="w-5 h-5 fill-current"
+                  viewBox="0 0 24 24"
+                >
                   <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.725 1.45 5.515.003 10.018-4.5 10.022-10.045.003-2.684-1.038-5.207-2.93-7.104C16.475 1.558 13.958.514 11.285.514c-5.52 0-10.019 4.499-10.022 10.042-.001 1.744.457 3.447 1.328 4.952L1.57 21.05l5.077-1.331z" />
                 </svg>
+
                 WhatsApp Us Directly
               </a>
             </div>
