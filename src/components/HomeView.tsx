@@ -1,6 +1,7 @@
 import { PageId } from "../types";
 import { CORE_VALUES, SERVICES_DATA, COMPANY_CONTACTS } from "../data";
 import { ArrowRight, BookOpen, Building, ShieldCheck, Star, Users, CheckCircle, Zap } from "lucide-react";
+import Logo from "./Logo";
 
 interface HomeViewProps {
   setCurrentPage: (page: PageId) => void;
@@ -89,9 +90,7 @@ export default function HomeView({ setCurrentPage }: HomeViewProps) {
             {/* Elegant Arched Capsule from the design mockup */}
             <div className="w-[190px] h-[290px] bg-gradient-to-br from-corporate-blue-light to-corporate-blue-dark border border-corporate-gold/40 rounded-t-full shadow-2xl flex flex-col items-center justify-between py-8 px-6 text-center relative z-10 group hover:border-corporate-gold transition-colors duration-500">
               <div className="flex flex-col items-center">
-                <div className="px-3 py-1 bg-corporate-gold rounded-sm flex items-center justify-center font-bold text-corporate-blue-dark text-sm mb-4">
-                  BRC
-                </div>
+                <Logo size={56} className="mb-4 shadow-xl border border-corporate-gold/40 rounded-full bg-[#F9F4EB]/5" />
                 <span className="text-corporate-gold text-4xl font-serif italic mb-2 select-all">15+</span>
                 <span className="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Years of Excellence</span>
               </div>

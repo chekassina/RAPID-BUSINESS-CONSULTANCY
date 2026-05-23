@@ -2,6 +2,7 @@ import { useState, FormEvent } from "react";
 import { PageId } from "../types";
 import { COMPANY_CONTACTS } from "../data";
 import { Mail, Phone, MapPin, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import Logo from "./Logo";
 
 interface FooterProps {
   setCurrentPage: (page: PageId) => void;
@@ -32,10 +33,8 @@ export default function Footer({ setCurrentPage }: FooterProps) {
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
         {/* About Column */}
         <div className="flex flex-col gap-4">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-8 rounded-sm bg-corporate-gold flex items-center justify-center font-bold text-corporate-blue-dark text-xs font-serif italic tracking-wide">
-              BRC
-            </div>
+          <div className="flex items-center gap-3">
+            <Logo size={40} className="shrink-0 rounded-full border border-corporate-gold/25 shadow-md" />
             <span className="text-md font-serif font-light tracking-widest text-white uppercase">RAPID CONSULTANCY</span>
           </div>
           <p className="text-xs text-gray-300 leading-relaxed">

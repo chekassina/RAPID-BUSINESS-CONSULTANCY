@@ -2,6 +2,7 @@ import { useState } from "react";
 import { PageId } from "../types";
 import { COMPANY_CONTACTS } from "../data";
 import { Menu, X, Phone, Mail, Clock, ShieldCheck } from "lucide-react";
+import Logo from "./Logo";
 
 interface HeaderProps {
   currentPage: PageId;
@@ -63,10 +64,8 @@ export default function Header({ currentPage, setCurrentPage }: HeaderProps) {
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
         {/* Dynamic RBOC Corporate Brand Segment */}
         <div className="flex items-center gap-3 cursor-pointer" onClick={() => handleNavClick("home")}>
-          {/* Logo Badge simplified to only contain BRC */}
-          <div className="relative w-12 h-12 bg-corporate-blue border border-corporate-gold/40 rounded-sm flex items-center justify-center shadow-md shrink-0">
-            <span className="text-sm font-serif font-bold text-corporate-gold tracking-widest">BRC</span>
-          </div>
+          {/* Official Clock / Compass Logo Badge */}
+          <Logo size={48} className="shrink-0 shadow-md rounded-full border border-corporate-gold/20" />
 
           <div>
             <div className="text-md sm:text-xl font-serif font-light text-white leading-tight tracking-tight flex items-center flex-wrap gap-x-1 uppercase">
