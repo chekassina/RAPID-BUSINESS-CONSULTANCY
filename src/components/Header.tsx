@@ -51,20 +51,13 @@ export default function Header({
           
           {/* Logo Section */}
           <div
-            className="flex items-center gap-4 cursor-pointer group"
+            className="flex items-center gap-4 cursor-pointer"
             onClick={() => handleNavClick("home")}
           >
-            <div className="relative">
-              <div className="absolute inset-0 bg-corporate-gold/20 blur-xl rounded-full"></div>
-
-              <Logo
-                size={58}
-                className="relative shrink-0 rounded-full border border-corporate-gold/20 shadow-lg"
-              />
-            </div>
-
-            {/* Company Name */}
-            
+            <Logo
+              size={58}
+              className="shrink-0 object-contain"
+            />
           </div>
 
           {/* Desktop CTA */}
