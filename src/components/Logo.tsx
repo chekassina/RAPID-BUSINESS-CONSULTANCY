@@ -14,7 +14,7 @@ export default function Logo({
       
       {/* Logo */}
       <img
-        src="/image/LOGO-removebg-preview.png"
+        src="/image/LOGO.png"
         alt="Rapid Business Consultancy Logo"
         width={size}
         height={size}
