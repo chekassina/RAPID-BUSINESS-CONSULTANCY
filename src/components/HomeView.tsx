@@ -1,4 +1,3 @@
-
 import { PageId } from "../types";
 import { CORE_VALUES, SERVICES_DATA } from "../data";
 import {
@@ -263,7 +262,8 @@ export default function HomeView({
 
               <p className="text-gray-300 text-xs sm:text-sm leading-relaxed mt-4 max-w-xl">
                 We provide certified consultations and expedite setup requests
-                for PACRA, ZRA, NHIMA, TCZ, EIZ, ZPPA, and NMCZ.
+                for PACRA, ZRA, NHIMA, TCZ, EIZ, ZPPA, NMCZ, ZIHRM,
+                ZIM, business licensing, and labour related issue support.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
@@ -272,6 +272,10 @@ export default function HomeView({
                   "ZRA TPIN & Cleared Status",
                   "National Health (NHIMA)",
                   "ZPPA Procurement Supplier Registry",
+                  "NMCZ Professional Licensing",
+                  "ZIHRM Human Resource Compliance",
+                  "ZIM Marketing Registration",
+                  "Labour related issue",
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-start gap-2.5">
                     <CheckCircle className="w-4 h-4 text-corporate-gold mt-0.5" />

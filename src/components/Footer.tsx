@@ -35,7 +35,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-3">
             <Logo size={40} className="shrink-0 rounded-full border border-corporate-gold/25 shadow-md" />
-            <span className="text-md font-serif font-light tracking-widest text-white uppercase">RAPID CONSULTANCY</span>
+           
           </div>
           <p className="text-xs text-gray-300 leading-relaxed">
             Your trusted partner in business growth, regulatory compliance, bookkeeping software, HR solutions, and local & international scholarships.

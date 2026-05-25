@@ -48,18 +48,12 @@ export default function Header({
           onClick={() => handleNavClick("home")}
         >
           <Logo
-            size={48}
+            size={55}
             className="shrink-0 shadow-md rounded-full border border-corporate-gold/20"
           />
 
           <div>
-            <div className="text-md sm:text-xl font-serif font-light text-white leading-tight tracking-tight flex items-center flex-wrap gap-x-1 uppercase">
-              RAPID{" "}
-              <span className="text-corporate-gold font-bold italic font-serif">
-                BUSINESS
-              </span>{" "}
-              CONSULTANCY
-            </div>
+           
 
             <div className="text-[9px] sm:text-[10px] font-bold text-gray-400 tracking-widest uppercase">
               “{COMPANY_CONTACTS.slogan}”
